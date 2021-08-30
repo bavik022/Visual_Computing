@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+	\begin{center}
+		\textbf{\LARGE ASSIGNMENT 08}\linebreak
+		\Large AVIK BANERJEE (3374885), SOUMYADEEP BHATTACHARJEE (3375428)\linebreak
+	\end{center}
+\begin{flushleft}
+	\textbf{Q 8.2}:\linebreak
+\end{flushleft}
+According to the question, $A, B, C, D \in \mathbb{E}^3$ are the 4 corner points of a tetrahedron, having position vectors $\vec{a}, \vec{b}, \vec{c}, \vec{d} \in \mathbb{R}^3$. A point $P$ with position vector $\vec{p}$ can be represented as
+\begin{center}
+	$\vec{p} = \alpha_1 \vec{a} + \alpha_2 \vec{b} + \alpha_3 \vec{c} + \alpha_4 \vec{d}$
+\end{center} 
+where $\sum_{i=1}^{i=4}\alpha_i = 1$.
+From this, we can write,
+\begin{center}
+	$\vec{p} - \vec{d} = \alpha_1 \vec{a} + \alpha_2 \vec{b} + \alpha_3 \vec{c} + \alpha_4 \vec{d} - \vec{d} \linebreak
+	\Rightarrow  \vec{p} - \vec{d} = \alpha_1 \vec{a} + \alpha_2 \vec{b} + \alpha_3 \vec{c} + \vec{d}(\alpha_4 - 1)\linebreak
+	\Rightarrow \vec{p} - \vec{d} = \alpha_1 \vec{a} + \alpha_2 \vec{b} + \alpha_3 \vec{c} + \vec{d}(-\alpha_1 - \alpha_2 - \alpha_3)\linebreak
+	\Rightarrow \vec{p} - \vec{d} = \alpha_1(\vec{a} - \vec{d}) + \alpha_2(\vec{b} - \vec{d}) + \alpha_3(\vec{c} - \vec{d})$\linebreak	
+\end{center}
+In matrix form, this can be written as,
+\begin{center}
+	$\vec{p} - \vec{d}=\begin{pmatrix}
+	{a_x - d_x} & {b_x - d_x} & {c_x - d_x}\\
+	{a_y - d_y} & {b_y - d_y} & {c_y - d_y}\\
+	{a_z - d_z} & {b_z - d_z} & {c_z - d_z}\\
+	\end{pmatrix} \begin{pmatrix}
+		\alpha_1\\
+		\alpha_2\\
+		\alpha_3
+	\end{pmatrix}\linebreak
+	\therefore \begin{pmatrix}
+	\alpha_1\\
+	\alpha_2\\
+	\alpha_3
+	\end{pmatrix} = A^{-1} (\vec{p} - \vec{d})$
+\end{center}
+\begin{flushleft}
+where $A = \begin{pmatrix}
+	{a_x - d_x} & {b_x - d_x} & {c_x - d_x}\\
+	{a_y - d_y} & {b_y - d_y} & {c_y - d_y}\\
+	{a_z - d_z} & {b_z - d_z} & {c_z - d_z}\\
+\end{pmatrix}$\linebreak
+\end{flushleft}
+The above calculation will fail if $A$ is not invertible, that is if $\det{A}$ is 0.\linebreak
+If $A$ is non-invertible, the vectors $\vec{da}, \vec{db}, \vec{dc}$ are linearly dependent, that is at least two of the vectors have to be collinear, which means two sides of the tetrahedron have to be collinear. The tetrahedron cannot be defined in that case.
+\end{document}

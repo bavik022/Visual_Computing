@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="..\packages\GLMathematics.0.9.5.4\build\native\GLMathematics.props" />
+    </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\freetype.redist.2.8.0.1\build\native\freetype.redist.targets" />
+    <Import Project="..\packages\freetype.2.8.0.1\build\native\freetype.targets" />
+    <Import Project="..\packages\libpng-msvc14-x64.1.6.29.7801\build\native\libpng-msvc14-x64.targets" />
+    <Import Project="..\packages\zlib.greedy.1.2.8.8\build\native\zlib.greedy.targets" />
+    <Import Project="..\packages\zlib-msvc-x64.1.2.11.8900\build\native\zlib-msvc-x64.targets" />
+    </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <OGL4CoreDefaultFrontend>OGL4CoreGLFW</OGL4CoreDefaultFrontend>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetName>$(ProjectName)</TargetName>
+    <TargetExt>.o4plug</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <LocalDebuggerCommand>$(OGL4CoreDefaultFrontend).exe</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)$(OGL4CoreDirectory)bin\$(Platform)\$(Configuration)\</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OGL4CoreDirectory)OGL4CoreAPI/;$(OGL4CoreDirectory)OGL4Core/;$(OGL4CoreDirectory)gl3w/include/;$(OGL4CoreDirectory)datraw;$(OGL4CoreDirectory)libpng;$(OGL4CoreDirectory)freetype/include/;$(OGL4CoreDirectory);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4251</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(OGL4CoreDirectory)bin\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OGL4CoreAPI.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="OGL4CoreDefaultFrontend">
+      <Value>$(OGL4CoreDefaultFrontend)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
